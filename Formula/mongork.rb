@@ -5,29 +5,37 @@
 class Mongork < Formula
   desc "MongoDB migration tool with MCP support"
   homepage "https://github.com/drewjocham/mongork"
-  version "0.0.3-beta.5"
+  version "0.0.3-beta.6"
   license "MIT"
 
   depends_on "mongodb/brew/mongodb-community" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.5/mongork_Darwin_x86_64.tar.gz"
-      sha256 "879524c43e34e0dc27ab58bbc486361b6919b29e63688337db9fc830d40c2c78"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.6/mongork_Darwin_x86_64.tar.gz"
+      sha256 "1db63a1ce7486384847200f11325dd4753c5d0a76ade01cd6499f93305a50167"
 
       define_method(:install) do
-        bin.install "mongork" => "mt"
+        bin.install "mongork" => "mongo"
+        bin.install_symlink "mongo" => "mmo"
+        bin.install_symlink "mongo" => "mt"
+        bin.install_symlink "mongo" => "mmt"
+        bin.install_symlink "mongo" => "mongork"
         pkgshare.install ".env.example"
         pkgshare.install "examples"
         pkgshare.install "mcp.md"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.5/mongork_Darwin_arm64.tar.gz"
-      sha256 "eb24a5fdd9b7c8e75efdee682881f72ee9ae47e2d88fae173ad06b17b1d24278"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.6/mongork_Darwin_arm64.tar.gz"
+      sha256 "46175517f3f7fe31755283f5f01a26d358678a97c382d01b405a35dd9cd515f1"
 
       define_method(:install) do
-        bin.install "mongork" => "mt"
+        bin.install "mongork" => "mongo"
+        bin.install_symlink "mongo" => "mmo"
+        bin.install_symlink "mongo" => "mt"
+        bin.install_symlink "mongo" => "mmt"
+        bin.install_symlink "mongo" => "mongork"
         pkgshare.install ".env.example"
         pkgshare.install "examples"
         pkgshare.install "mcp.md"
@@ -37,20 +45,28 @@ class Mongork < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.5/mongork_Linux_x86_64.tar.gz"
-      sha256 "dbd0528870cbf532d1e764a17d71e94f73fcbb4d19a727387eda449e47916618"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.6/mongork_Linux_x86_64.tar.gz"
+      sha256 "8337d7f9c7b2eaf3a64d59ba39ab71e1153868075a08f13f3a78f01ef09edffd"
       define_method(:install) do
-        bin.install "mongork" => "mt"
+        bin.install "mongork" => "mongo"
+        bin.install_symlink "mongo" => "mmo"
+        bin.install_symlink "mongo" => "mt"
+        bin.install_symlink "mongo" => "mmt"
+        bin.install_symlink "mongo" => "mongork"
         pkgshare.install ".env.example"
         pkgshare.install "examples"
         pkgshare.install "mcp.md"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.5/mongork_Linux_arm64.tar.gz"
-      sha256 "7fe5474421f4a6ac39cc6b60c594a103de12983778964785e1f44b9067ee02ad"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.6/mongork_Linux_arm64.tar.gz"
+      sha256 "955afa5d93a035f0a73c96ce3685cfa9decbdabe544525f2d6b0a88b42a309fe"
       define_method(:install) do
-        bin.install "mongork" => "mt"
+        bin.install "mongork" => "mongo"
+        bin.install_symlink "mongo" => "mmo"
+        bin.install_symlink "mongo" => "mt"
+        bin.install_symlink "mongo" => "mmt"
+        bin.install_symlink "mongo" => "mongork"
         pkgshare.install ".env.example"
         pkgshare.install "examples"
         pkgshare.install "mcp.md"
@@ -59,6 +75,6 @@ class Mongork < Formula
   end
 
   test do
-    system "#{bin}/mt --version"
+    system "#{bin}/mongo --version"
   end
 end
