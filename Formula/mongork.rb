@@ -5,15 +5,15 @@
 class Mongork < Formula
   desc "MongoDB migration tool with MCP support"
   homepage "https://github.com/drewjocham/mongork"
-  version "0.0.3-beta.7"
+  version "0.0.3-beta.8"
   license "MIT"
 
   depends_on "mongodb/brew/mongodb-community" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.7/mongork_Darwin_x86_64.tar.gz"
-      sha256 "1719932f6b0abbc6db3e1f20ee4a3e7db078a5a37e08d4374c349a70981b7bd0"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.8/mongork_Darwin_x86_64.tar.gz"
+      sha256 "18dfcfe4753da03a9cfd48cbd0f63d25465e156d2f50d0634b8ab00c24f3ca01"
 
       define_method(:install) do
         bin.install "mongork" => "mongo"
@@ -27,8 +27,8 @@ class Mongork < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.7/mongork_Darwin_arm64.tar.gz"
-      sha256 "cca5101f5b90df975e848c5e928a8d776f8d3a94ee6be2465cd0f7a50a77df36"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.8/mongork_Darwin_arm64.tar.gz"
+      sha256 "ec12fd0e5fc2fd1292936cd7c06b3f5f3ff9950f4ad588b75db781099d675458"
 
       define_method(:install) do
         bin.install "mongork" => "mongo"
@@ -45,8 +45,8 @@ class Mongork < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.7/mongork_Linux_x86_64.tar.gz"
-      sha256 "10468b3f279981611db9b93120946066afe5b52b3c6a637c68af7a2b80909381"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.8/mongork_Linux_x86_64.tar.gz"
+      sha256 "74000650c51c60bce707ae7eb4445479d28ebbf9272d9972a044f7caeeeed9c1"
       define_method(:install) do
         bin.install "mongork" => "mongo"
         bin.install_symlink "mongo" => "mmo"
@@ -59,8 +59,8 @@ class Mongork < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.7/mongork_Linux_arm64.tar.gz"
-      sha256 "45db08eb71be85c119a455675ca0fd92d1f8ff402afff2fb8d803002fe4b2319"
+      url "https://github.com/drewjocham/mongork/releases/download/v0.0.3-beta.8/mongork_Linux_arm64.tar.gz"
+      sha256 "555c35551c1a62cfbf98bc7bc0232ff6d206d48102b86127742c37b0400e678e"
       define_method(:install) do
         bin.install "mongork" => "mongo"
         bin.install_symlink "mongo" => "mmo"
